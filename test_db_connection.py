@@ -39,10 +39,11 @@ def build_connection_string() -> Tuple[str, str]:
             "Install 'ODBC Driver 18 for SQL Server' and try again."
         )
 
-    server = os.getenv("AZURE_SQL_SERVER")
-    database = os.getenv("AZURE_SQL_DATABASE")
-    username = os.getenv("AZURE_SQL_USERNAME")
-    password = os.getenv("AZURE_SQL_PASSWORD")
+
+    server =  st.secrets["azure_sql"]["AZURE_SQL_SERVER"]
+    database = st.secrets["azure_sql"]["AZURE_SQL_DATABASE"]
+    username = st.secrets["azure_sql"]["AZURE_SQL_USERNAME"]
+    password = st.secrets["azure_sql"]["AZURE_SQL_PASSWORD"]
 
     missing = [
         name
